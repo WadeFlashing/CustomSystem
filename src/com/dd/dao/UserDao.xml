@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dd.dao.UserDao">
+	<select id="findUser" parameterType="String" resultType="user">
+		select * from sysuser where user_code=#{usercode} and user_password=#{password}
+		and user_state='1'
+	</select>
+	
+	<insert id="addUser"  parameterType="com.dd.po.User">
+	insert into sysuser(user_code,user_password,user_name,user_state)
+	value(#{usercode},#{password},#{username},#{userstate})
+	</insert>
+</mapper>
+
+ 
